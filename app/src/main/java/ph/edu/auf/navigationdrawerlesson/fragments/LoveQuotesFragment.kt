@@ -1,12 +1,14 @@
 package ph.edu.auf.navigationdrawerlesson.fragments
 
+import android.R
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Toast
-import ph.edu.auf.navigationdrawerlesson.R
 import ph.edu.auf.navigationdrawerlesson.databinding.FragmentLoveQuotesBinding
 import kotlin.random.Random
 
@@ -38,14 +40,14 @@ class LoveQuotesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Randomize a quote and display it
         binding.btnRandomizeQuote.setOnClickListener {
-            // Randomly select a quote and display it
             val randomIndex = Random.nextInt(loveQuotes.size)
             binding.txtLoveQuote.text = loveQuotes[randomIndex]
         }
 
+        // Save current quote to favorites
         binding.btnSaveQuote.setOnClickListener {
-            // Save the current quote to favorites
             val currentQuote = binding.txtLoveQuote.text.toString()
             if (currentQuote.isNotEmpty() && !FavoriteQuotesHolder.favoriteQuotes.contains(currentQuote)) {
                 FavoriteQuotesHolder.favoriteQuotes.add(currentQuote)
@@ -54,6 +56,22 @@ class LoveQuotesFragment : Fragment() {
                 Toast.makeText(requireContext(), "This quote is already in favorites.", Toast.LENGTH_SHORT).show()
             }
         }
+
+        // Show all love quotes in the TextView
+        binding.btnShowQuotes.setOnClickListener {
+            showLoveQuotesDialog()
+        }
+    }
+
+    private fun showLoveQuotesDialog() {
+        val quotesArray = loveQuotes.toTypedArray() // Convert to array for the ArrayAdapter
+        val adapter = ArrayAdapter(requireContext(), R.layout.simple_list_item_1, quotesArray)
+
+        AlertDialog.Builder(requireContext())
+            .setTitle("Love Quotes")
+            .setAdapter(adapter) { dialog, _ -> dialog.dismiss() }
+            .setNegativeButton("Close") { dialog, _ -> dialog.dismiss() }
+            .show()
     }
 
     override fun onDestroyView() {
