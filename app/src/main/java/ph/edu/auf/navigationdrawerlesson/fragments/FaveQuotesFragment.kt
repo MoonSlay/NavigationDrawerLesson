@@ -32,7 +32,9 @@ class FaveQuotesFragment : Fragment() {
         // Automatically display a random favorite quote if available
         if (FavoriteQuotesHolder.favoriteQuotes.isNotEmpty()) {
             randomizeFavoriteQuote()
-        } else {
+        }
+
+        else {
             binding.txtFaveQuote.text = "No favorite quotes yet."
         }
 

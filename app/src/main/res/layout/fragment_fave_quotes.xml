@@ -9,6 +9,7 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-54dp">
 
+
     <TextView
         android:id="@+id/textView2"
         style="@style/TitleText"
@@ -18,11 +19,9 @@
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/txt_fave_quote"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="10" />
-
 
     <TextView
         android:id="@+id/txt_fave_quote"

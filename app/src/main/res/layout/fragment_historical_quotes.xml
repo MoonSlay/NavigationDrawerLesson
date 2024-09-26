@@ -30,6 +30,7 @@
         android:textAlignment="center"
         android:background="@drawable/transparent_background"
         android:textColor="@android:color/black"
+        android:layout_marginBottom="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_title"

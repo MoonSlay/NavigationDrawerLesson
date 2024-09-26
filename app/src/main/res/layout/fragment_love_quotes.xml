@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="10" />
+        app:layout_constraintVertical_bias="8" />
 
     <TextView
         android:id="@+id/txt_love_quote"
@@ -31,10 +31,12 @@
         android:background="@drawable/transparent_background"
         android:textAlignment="center"
         android:textColor="@android:color/black"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/layout_buttons"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_title"
-        app:layout_constraintBottom_toTopOf="@+id/layout_buttons" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_title" />
 
 
     <LinearLayout

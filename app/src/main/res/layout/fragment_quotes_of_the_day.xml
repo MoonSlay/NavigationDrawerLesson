@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/root_constraint_layout"
+    android:padding="16dp"
     android:background="@drawable/day">
 
     <TextView
@@ -35,36 +37,36 @@
 
     <LinearLayout
         android:id="@+id/layout_buttons"
-        android:layout_width="399dp"
-        android:layout_height="143dp"
-        android:layout_marginBottom="28dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Add Randomize Button -->
+
         <Button
             android:id="@+id/btnRandomize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#948b03"
-            android:drawableLeft="@drawable/ic_random"
             android:padding="16dp"
+            android:backgroundTint="#948b03"
             android:text="Randomize Quote"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:drawableLeft="@drawable/ic_random" />
 
-        <!-- Add Show All Quotes Button -->
+
         <Button
             android:id="@+id/btnShowAllQuotes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:backgroundTint="#e6d802"
-            android:drawableLeft="@drawable/ic_show"
-            android:padding="16dp"
+            android:padding="15dp"
+            android:backgroundTint="#c609cf"
             android:text="Show All Quotes"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:drawableLeft="@drawable/ic_show" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="176dp"
-    android:background="#A3A3A3"
+    android:background="@drawable/nav_menu_header_bg"
     android:padding="16dp"
     android:gravity="bottom"
     android:orientation="vertical">
@@ -13,13 +13,13 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_gravity="center_horizontal"
-        app:srcCompat="@mipmap/ic_launcher"
+        app:srcCompat="@mipmap/ic_nav_head"
         android:contentDescription="@string/app_name"
         android:layout_marginBottom="8dp"/>
 
     <!-- Main Title -->
     <TextView
-        android:text="Quotes Generator"
+        android:text="Quote Library"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
@@ -30,7 +30,7 @@
 
     <!-- Subtitle -->
     <TextView
-        android:text="Sample navigation for quotes generator"
+        android:text="Discover and save quotes to inspire your journey every day."
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
