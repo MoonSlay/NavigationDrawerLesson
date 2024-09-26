@@ -5,22 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/root_constraint_layout"
     android:padding="16dp"
     android:background="#479cc2">
 
     <TextView
-        android:id="@+id/txt_love_quote"
+        android:id="@+id/txt_funny_quote"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="20dp"
         android:textSize="18sp"
-        android:textColor="@android:color/white"
         android:textAlignment="center"
-        android:text="In all the world, there is no heart for me like yours. - Maya Angelou"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="I'm on a seafood diet. I see food and I eat it."
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.2" />
 
     <Button
@@ -35,7 +34,7 @@
         android:drawableLeft="@drawable/ic_random"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_love_quote" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_funny_quote" />
 
     <Button
         android:id="@+id/btn_save_quote"
@@ -66,3 +65,4 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_save_quote" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

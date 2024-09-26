@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
@@ -7,18 +6,35 @@
         <item
             android:id="@+id/nav_quotes_day"
             android:title="Quotes of the day"
-            android:icon="@drawable/ic_home"
-            />
+            android:icon="@drawable/ic_home" />
         <item
             android:id="@+id/nav_love_quotes"
             android:title="Love quotes"
-            android:icon="@drawable/ic_love_quotes"
-            />
+            android:icon="@drawable/ic_love_quotes" />
         <item
             android:id="@+id/nav_fave_quotes"
             android:title="Fave quotes"
-            android:icon="@drawable/ic_save"
-            />
+            android:icon="@drawable/ic_save" />
+        <item
+            android:id="@+id/nav_funny_quotes"
+            android:title="Funny quotes"
+            android:icon="@drawable/ic_funny" />
+        <item
+            android:id="@+id/nav_inspirational_quotes"
+            android:title="Inspirational quotes"
+            android:icon="@drawable/ic_inspirational" />
+        <item
+            android:id="@+id/nav_motivational_quotes"
+            android:title="Motivational quotes"
+            android:icon="@drawable/ic_motivational" />
+        <item
+            android:id="@+id/nav_historical_quotes"
+            android:title="Historical quotes"
+            android:icon="@drawable/ic_historical" />
+        <item
+            android:id="@+id/nav_travel_quotes"
+            android:title="Travel quotes"
+            android:icon="@drawable/ic_travel" />
     </group>
 
 </menu>
