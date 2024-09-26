@@ -31,4 +31,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
+    <!-- Add Randomize Button -->
+    <Button
+        android:id="@+id/btnRandomize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Randomize"
+        app:layout_constraintTop_toBottomOf="@+id/txtQuoteOfTheDay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
