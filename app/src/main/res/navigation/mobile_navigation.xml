@@ -6,11 +6,6 @@
     app:startDestination="@id/nav_quotes_day">
 
     <fragment
-        android:id="@+id/nav_quotes_day"
-        android:name="ph.edu.auf.navigationdrawerlesson.fragments.QuotesOfTheDayFragment"
-        android:label="Quotes of the day"
-        tools:layout="@layout/fragment_quotes_of_the_day" />
-    <fragment
         android:id="@+id/nav_love_quotes"
         android:name="ph.edu.auf.navigationdrawerlesson.fragments.LoveQuotesFragment"
         android:label="Love quotes\"
@@ -21,6 +16,12 @@
         android:name="ph.edu.auf.navigationdrawerlesson.fragments.FaveQuotesFragment"
         android:label="Favourite Quote"
         tools:layout="@layout/fragment_fave_quotes" />
+
+    <fragment
+        android:id="@+id/nav_quotes_day"
+        android:name="ph.edu.auf.navigationdrawerlesson.fragments.QuotesOfTheDayFragment"
+        android:label="Quotes of the day"
+        tools:layout="@layout/fragment_quotes_of_the_day" />
 
 
 </navigation>

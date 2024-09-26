@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import ph.edu.auf.navigationdrawerlesson.QuoteRepository
 import ph.edu.auf.navigationdrawerlesson.databinding.FragmentMotivationalQuotesBinding
 import kotlin.random.Random
 
@@ -16,13 +17,8 @@ class MotivationalQuotesFragment : Fragment() {
     private var _binding: FragmentMotivationalQuotesBinding? = null
     private val binding get() = _binding!!
 
-    private val motivationalQuotes = listOf(
-        "The harder you work for something, the greater you’ll feel when you achieve it.",
-        "Don’t stop when you’re tired. Stop when you’re done.",
-        "Dream it. Wish it. Do it.",
-        "Success doesn’t just find you. You have to go out and get it.",
-        "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle."
-    )
+    // Assuming QuoteRepository is already defined and initialized elsewhere
+    private val motivationalQuotes = QuoteRepository.quotesMap["motivational"] ?: emptyList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentMotivationalQuotesBinding.inflate(inflater, container, false)
@@ -32,11 +28,17 @@ class MotivationalQuotesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Button to randomize quote
         binding.btnRandomizeQuote.setOnClickListener {
-            val randomIndex = Random.nextInt(motivationalQuotes.size)
-            binding.txtMotivationalQuote.text = motivationalQuotes[randomIndex]
+            if (motivationalQuotes.isNotEmpty()) {
+                val randomIndex = Random.nextInt(motivationalQuotes.size)
+                binding.txtMotivationalQuote.text = motivationalQuotes[randomIndex]
+            } else {
+                Toast.makeText(requireContext(), "No quotes available", Toast.LENGTH_SHORT).show()
+            }
         }
 
+        // Button to save the current quote to favorites
         binding.btnSaveQuote.setOnClickListener {
             val currentQuote = binding.txtMotivationalQuote.text.toString()
             if (currentQuote.isNotEmpty() && !FavoriteQuotesHolder.favoriteQuotes.contains(currentQuote)) {
@@ -47,6 +49,7 @@ class MotivationalQuotesFragment : Fragment() {
             }
         }
 
+        // Button to show all motivational quotes in a dialog
         binding.btnShowQuotes.setOnClickListener {
             showMotivationalQuotesDialog()
         }

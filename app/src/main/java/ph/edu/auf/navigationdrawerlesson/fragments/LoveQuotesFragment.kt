@@ -1,6 +1,5 @@
 package ph.edu.auf.navigationdrawerlesson.fragments
 
-import android.R
 import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,28 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import ph.edu.auf.navigationdrawerlesson.QuoteRepository
 import ph.edu.auf.navigationdrawerlesson.databinding.FragmentLoveQuotesBinding
 import kotlin.random.Random
-
-object FavoriteQuotesHolder {
-    val favoriteQuotes = mutableListOf<String>()
-}
 
 class LoveQuotesFragment : Fragment() {
 
     private var _binding: FragmentLoveQuotesBinding? = null
     private val binding get() = _binding!!
 
-    // List of love quotes
-    private val loveQuotes = listOf(
-        "In all the world, there is no heart for me like yours. - Maya Angelou",
-        "Love is composed of a single soul inhabiting two bodies. - Aristotle",
-        "To love and be loved is to feel the sun from both sides. - David Viscott",
-        "The best thing to hold onto in life is each other. - Audrey Hepburn",
-        "You don't love someone because they're perfect. You love them in spite of the fact that they're not. - Jodi Picoult",
-        "We accept the love we think we deserve. - Stephen Chbosky",
-        "Love is the only force capable of transforming an enemy into a friend. - Martin Luther King, Jr."
-    )
+    // Retrieve love quotes from the QuoteRepository
+    private val loveQuotes = QuoteRepository.quotesMap["love"] ?: emptyList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentLoveQuotesBinding.inflate(inflater, container, false)
@@ -42,8 +30,12 @@ class LoveQuotesFragment : Fragment() {
 
         // Randomize a quote and display it
         binding.btnRandomizeQuote.setOnClickListener {
-            val randomIndex = Random.nextInt(loveQuotes.size)
-            binding.txtLoveQuote.text = loveQuotes[randomIndex]
+            if (loveQuotes.isNotEmpty()) {
+                val randomIndex = Random.nextInt(loveQuotes.size)
+                binding.txtLoveQuote.text = loveQuotes[randomIndex]
+            } else {
+                Toast.makeText(requireContext(), "No quotes available", Toast.LENGTH_SHORT).show()
+            }
         }
 
         // Save current quote to favorites
@@ -57,7 +49,7 @@ class LoveQuotesFragment : Fragment() {
             }
         }
 
-        // Show all love quotes in the TextView
+        // Show all love quotes in a dialog
         binding.btnShowQuotes.setOnClickListener {
             showLoveQuotesDialog()
         }
@@ -65,7 +57,7 @@ class LoveQuotesFragment : Fragment() {
 
     private fun showLoveQuotesDialog() {
         val quotesArray = loveQuotes.toTypedArray() // Convert to array for the ArrayAdapter
-        val adapter = ArrayAdapter(requireContext(), R.layout.simple_list_item_1, quotesArray)
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, quotesArray)
 
         AlertDialog.Builder(requireContext())
             .setTitle("Love Quotes")

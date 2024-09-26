@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import ph.edu.auf.navigationdrawerlesson.QuoteRepository
 import ph.edu.auf.navigationdrawerlesson.databinding.FragmentInspirationalQuotesBinding
 import kotlin.random.Random
 
@@ -16,13 +17,8 @@ class InspirationalQuotesFragment : Fragment() {
     private var _binding: FragmentInspirationalQuotesBinding? = null
     private val binding get() = _binding!!
 
-    private val inspirationalQuotes = listOf(
-        "The only way to do great work is to love what you do. - Steve Jobs",
-        "Success is not the key to happiness. Happiness is the key to success. - Albert Schweitzer",
-        "Believe you can and you're halfway there. - Theodore Roosevelt",
-        "In the middle of difficulty lies opportunity. - Albert Einstein",
-        "It does not matter how slowly you go as long as you do not stop. - Confucius"
-    )
+    // Retrieve inspirational quotes from the QuoteRepository
+    private val inspirationalQuotes = QuoteRepository.quotesMap["inspirational"] ?: emptyList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentInspirationalQuotesBinding.inflate(inflater, container, false)
@@ -33,8 +29,12 @@ class InspirationalQuotesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnRandomizeQuote.setOnClickListener {
-            val randomIndex = Random.nextInt(inspirationalQuotes.size)
-            binding.txtInspirationalQuote.text = inspirationalQuotes[randomIndex]
+            if (inspirationalQuotes.isNotEmpty()) {
+                val randomIndex = Random.nextInt(inspirationalQuotes.size)
+                binding.txtInspirationalQuote.text = inspirationalQuotes[randomIndex]
+            } else {
+                Toast.makeText(requireContext(), "No quotes available", Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.btnSaveQuote.setOnClickListener {
@@ -53,7 +53,7 @@ class InspirationalQuotesFragment : Fragment() {
     }
 
     private fun showInspirationalQuotesDialog() {
-        val quotesArray = inspirationalQuotes.toTypedArray()
+        val quotesArray = inspirationalQuotes.toTypedArray() // Convert to array for the ArrayAdapter
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, quotesArray)
 
         AlertDialog.Builder(requireContext())

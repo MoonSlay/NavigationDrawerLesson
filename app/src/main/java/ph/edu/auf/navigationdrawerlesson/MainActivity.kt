@@ -20,8 +20,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -29,40 +27,22 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(android.R.drawable.ic_menu_more)
-        // Make sure you have this icon in res
 
         // Handle Navigation Drawer Item Clicks
         binding.navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.nav_fave_quotes -> {
-                    openFragment(FaveQuotesFragment())
-                }
-                R.id.nav_love_quotes -> {
-                    openFragment(LoveQuotesFragment())
-                }
-                R.id.nav_quotes_day -> {
-                    openFragment(QuotesOfTheDayFragment())
-                }
-                R.id.nav_funny_quotes -> {
-                    openFragment(FunnyQuotesFragment())
-                }
-                R.id.nav_inspirational_quotes -> {
-                    openFragment(InspirationalQuotesFragment())
-                }
-                R.id.nav_motivational_quotes -> {
-                    openFragment(MotivationalQuotesFragment())
-                }
-                R.id.nav_historical_quotes -> {
-                    openFragment(HistoricalQuotesFragment())
-                }
-                R.id.nav_travel_quotes -> {
-                    openFragment(TravelQuotesFragment())
-                }
+                R.id.nav_fave_quotes -> openFragment(FaveQuotesFragment())
+                R.id.nav_love_quotes -> openFragment(LoveQuotesFragment())
+                R.id.nav_quotes_day -> openFragment(QuotesOfTheDayFragment())
+                R.id.nav_funny_quotes -> openFragment(FunnyQuotesFragment())
+                R.id.nav_inspirational_quotes -> openFragment(InspirationalQuotesFragment())
+                R.id.nav_motivational_quotes -> openFragment(MotivationalQuotesFragment())
+                R.id.nav_historical_quotes -> openFragment(HistoricalQuotesFragment())
+                R.id.nav_travel_quotes -> openFragment(TravelQuotesFragment())
             }
             binding.drawerLayout.closeDrawer(GravityCompat.START)
             true
         }
-
 
         // Load default fragment
         if (savedInstanceState == null) {
@@ -70,10 +50,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Helper function to open the fragment
     private fun openFragment(fragment: Fragment) {
         supportFragmentManager.commit {
-            replace(R.id.fragment_container_view, fragment)  // Make sure to have a FrameLayout/FragmentContainerView in the layout
+            replace(R.id.fragment_container_view, fragment) // Ensure you have a correct FragmentContainerView or FrameLayout
         }
     }
 
@@ -82,3 +61,4 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 }
+

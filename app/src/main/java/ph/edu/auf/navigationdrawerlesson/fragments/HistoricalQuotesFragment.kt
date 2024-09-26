@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import ph.edu.auf.navigationdrawerlesson.QuoteRepository
 import ph.edu.auf.navigationdrawerlesson.databinding.FragmentHistoricalQuotesBinding
 import kotlin.random.Random
 
@@ -16,13 +17,8 @@ class HistoricalQuotesFragment : Fragment() {
     private var _binding: FragmentHistoricalQuotesBinding? = null
     private val binding get() = _binding!!
 
-    private val historicalQuotes = listOf(
-        "The only thing we have to fear is fear itself. - Franklin D. Roosevelt",
-        "I have a dream. - Martin Luther King Jr.",
-        "Injustice anywhere is a threat to justice everywhere. - Martin Luther King Jr.",
-        "History is written by the victors. - Winston Churchill",
-        "Those who do not remember the past are condemned to repeat it. - George Santayana"
-    )
+    // Retrieve historical quotes from the QuoteRepository
+    private val historicalQuotes = QuoteRepository.quotesMap["historical"] ?: emptyList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentHistoricalQuotesBinding.inflate(inflater, container, false)
@@ -33,8 +29,12 @@ class HistoricalQuotesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnRandomizeQuote.setOnClickListener {
-            val randomIndex = Random.nextInt(historicalQuotes.size)
-            binding.txtHistoricalQuote.text = historicalQuotes[randomIndex]
+            if (historicalQuotes.isNotEmpty()) {
+                val randomIndex = Random.nextInt(historicalQuotes.size)
+                binding.txtHistoricalQuote.text = historicalQuotes[randomIndex]
+            } else {
+                Toast.makeText(requireContext(), "No quotes available", Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.btnSaveQuote.setOnClickListener {
@@ -53,7 +53,7 @@ class HistoricalQuotesFragment : Fragment() {
     }
 
     private fun showHistoricalQuotesDialog() {
-        val quotesArray = historicalQuotes.toTypedArray()
+        val quotesArray = historicalQuotes.toTypedArray() // Convert to array for the ArrayAdapter
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, quotesArray)
 
         AlertDialog.Builder(requireContext())

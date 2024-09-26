@@ -12,6 +12,10 @@ import ph.edu.auf.navigationdrawerlesson.R
 import ph.edu.auf.navigationdrawerlesson.databinding.FragmentFaveQuotesBinding
 import kotlin.random.Random
 
+object FavoriteQuotesHolder {
+    val favoriteQuotes = mutableListOf<String>()
+}
+
 class FaveQuotesFragment : Fragment() {
 
     private var _binding: FragmentFaveQuotesBinding? = null
