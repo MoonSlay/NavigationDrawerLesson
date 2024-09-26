@@ -10,14 +10,12 @@
 
     <TextView
         android:id="@+id/txt_title"
+        style="@style/TitleText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="180dp"
         android:text="Travel Quotes"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,18 +23,19 @@
 
     <TextView
         android:id="@+id/txt_travel_quote"
+        style="@style/QuoteText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="20dp"
-        android:textSize="18sp"
-        android:textColor="@android:color/white"
         android:textAlignment="center"
-        android:text="The world is a book and those who do not travel read only one page. - Saint Augustine"
+        android:background="@drawable/transparent_background"
+        android:textColor="@android:color/black"
         app:layout_constraintTop_toBottomOf="@+id/txt_title"
         app:layout_constraintBottom_toTopOf="@+id/layout_buttons"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.5" />
+
 
     <LinearLayout
         android:id="@+id/layout_buttons"
@@ -53,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:backgroundTint="#5647c2"
+            android:backgroundTint="#0477b8"
             android:text="Randomize Quote"
             android:textColor="@android:color/white"
             android:drawableLeft="@drawable/ic_random" />

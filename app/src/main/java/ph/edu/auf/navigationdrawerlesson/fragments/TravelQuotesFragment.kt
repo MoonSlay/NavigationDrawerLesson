@@ -28,6 +28,14 @@ class TravelQuotesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Automatically display a random quote when the fragment is created
+        if (travelQuotes.isNotEmpty()) {
+            val randomIndex = Random.nextInt(travelQuotes.size)
+            binding.txtTravelQuote.text = travelQuotes[randomIndex]
+        } else {
+            binding.txtTravelQuote.text = "No quotes available" // Handle case with no quotes
+        }
+
         // Button to randomize quote
         binding.btnRandomizeQuote.setOnClickListener {
             if (travelQuotes.isNotEmpty()) {

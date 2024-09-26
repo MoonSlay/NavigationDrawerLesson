@@ -17,7 +17,7 @@ class MotivationalQuotesFragment : Fragment() {
     private var _binding: FragmentMotivationalQuotesBinding? = null
     private val binding get() = _binding!!
 
-    // Assuming QuoteRepository is already defined and initialized elsewhere
+    // Retrieve motivational quotes from the QuoteRepository
     private val motivationalQuotes = QuoteRepository.quotesMap["motivational"] ?: emptyList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -27,6 +27,14 @@ class MotivationalQuotesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Automatically display a random quote when the fragment is created
+        if (motivationalQuotes.isNotEmpty()) {
+            val randomIndex = Random.nextInt(motivationalQuotes.size)
+            binding.txtMotivationalQuote.text = motivationalQuotes[randomIndex]
+        } else {
+            binding.txtMotivationalQuote.text = "No quotes available" // Handle case with no quotes
+        }
 
         // Button to randomize quote
         binding.btnRandomizeQuote.setOnClickListener {

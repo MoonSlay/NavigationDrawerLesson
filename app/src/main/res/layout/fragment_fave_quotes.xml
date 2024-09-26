@@ -1,38 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/favorite"
     android:padding="16dp"
-    android:background="@drawable/favorite">
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-54dp">
 
     <TextView
         android:id="@+id/textView2"
+        style="@style/TitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Favorite Quotes"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginTop="200dp"
+        android:text="Favorite\n     Quotes"
+        android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/txt_fave_quote"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="10" />
 
+
     <TextView
         android:id="@+id/txt_fave_quote"
+        style="@style/QuoteText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:padding="20dp"
-        android:text="Your favorite quotes will appear here."
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/transparent_background"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:backgroundTint="#5647c2"
+            android:backgroundTint="#11ad04"
             android:text="Randomize Quote"
             android:textColor="@android:color/white"
             android:drawableLeft="@drawable/ic_random" />
@@ -64,10 +63,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:padding="16dp"
-            android:backgroundTint="#436d97"
-            android:text="Remove Fave Quote"
+            android:backgroundTint="#0b8201"
+            android:text="Save Quote"
             android:textColor="@android:color/white"
-            android:drawableLeft="@drawable/ic_remove" />
+            android:drawableLeft="@drawable/ic_save" />
 
         <Button
             android:id="@+id/btn_show_fave_quotes"
@@ -75,8 +74,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:padding="15dp"
-            android:backgroundTint="#5647c2"
-            android:text="Show Favorite Quotes"
+            android:backgroundTint="#10550a"
+            android:text="Show All Quotes"
             android:textColor="@android:color/white"
             android:drawableLeft="@drawable/ic_show" />
     </LinearLayout>

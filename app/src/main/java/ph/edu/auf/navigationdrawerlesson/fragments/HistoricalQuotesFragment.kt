@@ -28,6 +28,14 @@ class HistoricalQuotesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Automatically display a random quote when the fragment is created
+        if (historicalQuotes.isNotEmpty()) {
+            val randomIndex = Random.nextInt(historicalQuotes.size)
+            binding.txtHistoricalQuote.text = historicalQuotes[randomIndex]
+        } else {
+            binding.txtHistoricalQuote.text = "No quotes available" // Handle case with no quotes
+        }
+
         binding.btnRandomizeQuote.setOnClickListener {
             if (historicalQuotes.isNotEmpty()) {
                 val randomIndex = Random.nextInt(historicalQuotes.size)

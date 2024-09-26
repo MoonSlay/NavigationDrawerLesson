@@ -28,6 +28,14 @@ class FunnyQuotesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Automatically display a random quote when the fragment is created
+        if (funnyQuotes.isNotEmpty()) {
+            val randomIndex = Random.nextInt(funnyQuotes.size)
+            binding.txtFunnyQuote.text = funnyQuotes[randomIndex]
+        } else {
+            binding.txtFunnyQuote.text = "No quotes available" // Handle case with no quotes
+        }
+
         binding.btnRandomizeQuote.setOnClickListener {
             if (funnyQuotes.isNotEmpty()) {
                 val randomIndex = Random.nextInt(funnyQuotes.size)
