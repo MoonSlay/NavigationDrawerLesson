@@ -63,9 +63,9 @@
             android:layout_marginTop="16dp"
             android:padding="16dp"
             android:backgroundTint="#0b8201"
-            android:text="Save Quote"
+            android:text="Remove Quote"
             android:textColor="@android:color/white"
-            android:drawableLeft="@drawable/ic_save" />
+            android:drawableLeft="@drawable/ic_remove" />
 
         <Button
             android:id="@+id/btn_show_fave_quotes"
