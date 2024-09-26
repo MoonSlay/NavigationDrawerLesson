@@ -5,36 +5,46 @@
     <group>
         <item
             android:id="@+id/nav_quotes_day"
-            android:title="Quotes of the day"
+            android:title="Quotes of the Day"
             android:icon="@drawable/ic_home" />
-        <item
-            android:id="@+id/nav_love_quotes"
-            android:title="Love quotes"
-            android:icon="@drawable/ic_love_quotes" />
+
         <item
             android:id="@+id/nav_fave_quotes"
-            android:title="Fave quotes"
+            android:title="Favorite Quotes"
             android:icon="@drawable/ic_save" />
+
+        <item
+            android:id="@+id/nav_love_quotes"
+            android:title="Love Quotes"
+            android:icon="@drawable/ic_love_quotes" />
+
         <item
             android:id="@+id/nav_funny_quotes"
-            android:title="Funny quotes"
+            android:title="Funny Quotes"
             android:icon="@drawable/ic_funny" />
+
         <item
             android:id="@+id/nav_inspirational_quotes"
-            android:title="Inspirational quotes"
+            android:title="Inspirational Quotes"
             android:icon="@drawable/ic_inspirational" />
+
         <item
             android:id="@+id/nav_motivational_quotes"
-            android:title="Motivational quotes"
+            android:title="Motivational Quotes"
             android:icon="@drawable/ic_motivational" />
+
         <item
             android:id="@+id/nav_historical_quotes"
-            android:title="Historical quotes"
+            android:title="Historical Quotes"
             android:icon="@drawable/ic_historical" />
+
         <item
             android:id="@+id/nav_travel_quotes"
-            android:title="Travel quotes"
+            android:title="Travel Quotes"
             android:icon="@drawable/ic_travel" />
     </group>
 
 </menu>
+
+
+

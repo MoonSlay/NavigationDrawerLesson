@@ -10,6 +10,21 @@
     android:background="#479cc2">
 
     <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
+        android:text="Love Quotes"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/txt_love_quote"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -18,51 +33,53 @@
         android:textColor="@android:color/white"
         android:textAlignment="center"
         android:text="In all the world, there is no heart for me like yours. - Maya Angelou"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title"
+        app:layout_constraintBottom_toTopOf="@+id/layout_buttons"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.5" />
 
-    <Button
-        android:id="@+id/btn_randomize_quote"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:padding="16dp"
-        android:backgroundTint="#5647c2"
-        android:text="Randomize Quote"
-        android:textColor="@android:color/white"
-        android:drawableLeft="@drawable/ic_random"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_love_quote" />
-
-    <Button
-        android:id="@+id/btn_save_quote"
+    <LinearLayout
+        android:id="@+id/layout_buttons"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:padding="16dp"
-        android:backgroundTint="#E91E63"
-        android:text="Save Quote"
-        android:textColor="@android:color/white"
-        android:drawableLeft="@drawable/ic_save"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_randomize_quote" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <Button
-        android:id="@+id/btn_show_quotes"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:padding="15dp"
-        android:backgroundTint="#4CAF50"
-        android:text="Show All Quotes"
-        android:textColor="@android:color/white"
-        android:drawableLeft="@drawable/ic_show"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_save_quote" />
+        <Button
+            android:id="@+id/btn_randomize_quote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:backgroundTint="#5647c2"
+            android:text="Randomize Quote"
+            android:textColor="@android:color/white"
+            android:drawableLeft="@drawable/ic_random" />
+
+        <Button
+            android:id="@+id/btn_save_quote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:backgroundTint="#E91E63"
+            android:text="Save Quote"
+            android:textColor="@android:color/white"
+            android:drawableLeft="@drawable/ic_save" />
+
+        <Button
+            android:id="@+id/btn_show_quotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="15dp"
+            android:backgroundTint="#4CAF50"
+            android:text="Show All Quotes"
+            android:textColor="@android:color/white"
+            android:drawableLeft="@drawable/ic_show" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
