@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/nav_love_quotes"
         android:name="ph.edu.auf.navigationdrawerlesson.fragments.LoveQuotesFragment"
-        android:label="Love quotes\"
+        android:label="Love quotes"
         tools:layout="@layout/fragment_love_quotes" />
 
     <fragment
@@ -23,5 +23,33 @@
         android:label="Quotes of the day"
         tools:layout="@layout/fragment_quotes_of_the_day" />
 
+    <fragment
+        android:id="@+id/nav_funny_quotes"
+        android:name="ph.edu.auf.navigationdrawerlesson.fragments.FunnyQuotesFragment"
+        android:label="Funny Quotes"
+        tools:layout="@layout/fragment_funny_quotes" />
 
+    <fragment
+        android:id="@+id/nav_inspirational_quotes"
+        android:name="ph.edu.auf.navigationdrawerlesson.fragments.InspirationalQuotesFragment"
+        android:label="Inspirational Quotes"
+        tools:layout="@layout/fragment_inspirational_quotes" />
+
+    <fragment
+        android:id="@+id/nav_motivational_quotes"
+        android:name="ph.edu.auf.navigationdrawerlesson.fragments.MotivationalQuotesFragment"
+        android:label="Motivational Quotes"
+        tools:layout="@layout/fragment_motivational_quotes" />
+
+    <fragment
+        android:id="@+id/nav_historical_quotes"
+        android:name="ph.edu.auf.navigationdrawerlesson.fragments.HistoricalQuotesFragment"
+        android:label="Historical Quotes"
+        tools:layout="@layout/fragment_historical_quotes" />
+
+    <fragment
+        android:id="@+id/nav_travel_quotes"
+        android:name="ph.edu.auf.navigationdrawerlesson.fragments.TravelQuotesFragment"
+        android:label="Travel Quotes"
+        tools:layout="@layout/fragment_travel_quotes" />
 </navigation>

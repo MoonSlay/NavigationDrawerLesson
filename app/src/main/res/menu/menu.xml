@@ -3,6 +3,7 @@
     tools:showIn="navigation_view">
 
     <group>
+
         <item
             android:id="@+id/nav_quotes_day"
             android:title="Quotes of the Day"
@@ -12,6 +13,7 @@
             android:id="@+id/nav_fave_quotes"
             android:title="Favorite Quotes"
             android:icon="@drawable/ic_save" />
+
 
         <item
             android:id="@+id/nav_love_quotes"
