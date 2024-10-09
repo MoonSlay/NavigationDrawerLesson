@@ -49,11 +49,13 @@ class MotivationalQuotesFragment : Fragment() {
         // Button to save the current quote to favorites
         binding.btnSaveQuote.setOnClickListener {
             val currentQuote = binding.txtMotivationalQuote.text.toString()
-            if (currentQuote.isNotEmpty() && !FavoriteQuotesHolder.favoriteQuotes.contains(currentQuote)) {
-                FavoriteQuotesHolder.favoriteQuotes.add(currentQuote)
-                Toast.makeText(requireContext(), "Quote saved to favorites!", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(requireContext(), "This quote is already in favorites.", Toast.LENGTH_SHORT).show()
+            if (currentQuote.isNotEmpty()) {
+                if (!FavoriteQuotesHolder.favoriteQuotes.contains(currentQuote)) {
+                    FavoriteQuotesHolder.addQuote(requireContext(), currentQuote)
+                    Toast.makeText(requireContext(), "Quote saved to favorites!", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), "This quote is already in favorites.", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 

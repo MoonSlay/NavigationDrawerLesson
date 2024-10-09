@@ -1,5 +1,6 @@
 package ph.edu.auf.navigationdrawerlesson.fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,12 +9,32 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import ph.edu.auf.navigationdrawerlesson.R
 import ph.edu.auf.navigationdrawerlesson.databinding.FragmentFaveQuotesBinding
 import kotlin.random.Random
 
 object FavoriteQuotesHolder {
     val favoriteQuotes = mutableListOf<String>()
+
+    fun addQuote(context: Context, quote: String) {
+        if (!favoriteQuotes.contains(quote)) {
+            favoriteQuotes.add(quote)
+            saveFavoriteQuotes(context)
+        }
+    }
+
+    fun saveFavoriteQuotes(context: Context) {
+        val sharedPreferences = context.getSharedPreferences("favorite_quotes", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putStringSet("quotes", favoriteQuotes.toSet())
+        editor.apply()
+    }
+
+    fun loadFavoriteQuotes(context: Context) {
+        val sharedPreferences = context.getSharedPreferences("favorite_quotes", Context.MODE_PRIVATE)
+        val quotesSet = sharedPreferences.getStringSet("quotes", emptySet())
+        favoriteQuotes.clear()
+        favoriteQuotes.addAll(quotesSet ?: emptySet())
+    }
 }
 
 class FaveQuotesFragment : Fragment() {
@@ -29,12 +50,13 @@ class FaveQuotesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Load favorite quotes from SharedPreferences
+        FavoriteQuotesHolder.loadFavoriteQuotes(requireContext())
+
         // Automatically display a random favorite quote if available
         if (FavoriteQuotesHolder.favoriteQuotes.isNotEmpty()) {
             randomizeFavoriteQuote()
-        }
-
-        else {
+        } else {
             binding.txtFaveQuote.text = "No favorite quotes yet."
         }
 
@@ -65,6 +87,7 @@ class FaveQuotesFragment : Fragment() {
         val currentQuote = binding.txtFaveQuote.text.toString()
         if (FavoriteQuotesHolder.favoriteQuotes.contains(currentQuote)) {
             FavoriteQuotesHolder.favoriteQuotes.remove(currentQuote)
+            FavoriteQuotesHolder.saveFavoriteQuotes(requireContext()) // Save updated list to SharedPreferences
             // Check if there are still quotes left
             if (FavoriteQuotesHolder.favoriteQuotes.isNotEmpty()) {
                 randomizeFavoriteQuote() // Display a new random quote
